@@ -8,7 +8,7 @@ const validate = values => {
         errors.name = 'Requerid line';
     }
     else if (values.name.length < 2) {
-        errors.name = 'Minimum 2 simbols'
+        errors.name = 'Minimum 2 symbols'
     }
     if (!values.email) {
         errors.email = 'Requerid line';
@@ -36,8 +36,8 @@ const Form = () => {
 
     return (
         <form className="form" onSubmit={formik.handleSubmit}>
-            <h2>Отправить пожертвование</h2>
-            <label htmlFor="name">Ваше имя</label>
+            <h2>Send donation</h2>
+            <label htmlFor="name">Your name</label>
             <input
                 id="name"
                 name="name"
@@ -47,7 +47,7 @@ const Form = () => {
                 onBlur={formik.handleBlur}
             />
             {formik.errors.name && formik.touched.name ? <div>{formik.errors.name}</div> : null}
-            <label htmlFor="email">Ваша почта</label>
+            <label htmlFor="email">Your email</label>
             <input
                 id="email"
                 name="email"
@@ -57,7 +57,7 @@ const Form = () => {
                 onBlur={formik.handleBlur}
             />
             {formik.errors.email && formik.touched.email ? <div>{formik.errors.email}</div> : null}
-            <label htmlFor="amount">Количество</label>
+            <label htmlFor="amount">Amount</label>
             <input
                 id="amount"
                 name="amount"
@@ -66,19 +66,19 @@ const Form = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
-            <label htmlFor="currency">Валюта</label>
+            <label htmlFor="currency">Currency</label>
             <select
                 id="currency"
                 name="currency"
                 value={formik.values.currency}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}>
-                <option value="">Выберите валюту</option>
+                <option value="">Select currency</option>
                 <option value="USD">USD</option>
                 <option value="UAH">UAH</option>
-                <option value="RUB">RUB</option>
+                <option value="RUB">EUR</option>
             </select>
-            <label htmlFor="text">Ваше сообщение</label>
+            <label htmlFor="text">Your message</label>
             <textarea
                 id="text"
                 name="text"
@@ -91,9 +91,9 @@ const Form = () => {
                     value={formik.values.terms}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur} />
-                Соглашаетесь с политикой конфиденциальности?
+                Do you agree with the privacy policy?
             </label>
-            <button type="submit">Отправить</button>
+            <button type="submit">Send</button>
         </form>
     )
 }
